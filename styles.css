@@ -1,6 +1,10 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
   background: #f5f7fb;
   color: #111;
 }
@@ -9,11 +13,14 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+
   background: #3f6fe5;
   padding: 12px 20px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   white-space: nowrap;
 }
 
@@ -34,6 +41,7 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
+
   display: flex;
   align-items: center;
   gap: 6px;
@@ -45,10 +53,14 @@ body {
 
 .hero {
   min-height: 70vh;
-  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), linear-gradient(180deg, #005bbb, #00a3e0);
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    linear-gradient(180deg, #005bbb, #00a3e0);
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-align: center;
   color: white;
   padding: 40px 20px;
@@ -118,46 +130,4 @@ body {
   text-align: center;
   padding: 20px;
   font-size: 14px;
-}
-
-#proxy-popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.proxy-container {
-  position: relative;
-  width: 80%;
-  max-width: 800px;
-  height: 80%;
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.proxy-container iframe {
-  flex: 1;
-  width: 100%;
-  border: none;
-}
-
-.proxy-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: #3f6fe5;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 18px;
-  padding: 6px 10px;
-  cursor: pointer;
-  z-index: 100;
 }
