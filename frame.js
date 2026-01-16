@@ -1,10 +1,5 @@
 (function () {
-  const favicon = document.createElement("link");
-  favicon.rel = "icon";
-  favicon.type = "image/jpeg";
-  favicon.href = "/images (7).jpeg";
-  document.head.appendChild(favicon);
-
+  
   const navbar = document.createElement("header");
   navbar.className = "navbar";
   navbar.innerHTML = `
