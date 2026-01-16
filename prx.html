@@ -1,63 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blocksi - Proxy</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="/styles.css">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+
   <main class="proxy-page">
-    <section class="proxy-box">
-      <h1>Proxy</h1>
-      <form id="proxyForm">
-        <input type="text" id="urlInput" placeholder="Enter URL" autocomplete="off" required>
-        <button type="submit" class="cta-btn">Go</button>
-      </form>
-      <div class="proxy-actions">
-        <button id="openBtn" class="cta-btn">Open in New Tab</button>
-        <button id="copyBtn" class="cta-btn">Copy Proxy Link</button>
+    <section class="proxy-hero">
+      <div class="proxy-hero-inner">
+        <h1>Proxy</h1>
+        <p>Enter a URL to open it through the proxy.</p>
+
+        <div class="proxy-input-wrap">
+          <input type="text" id="proxyUrl" placeholder="https://example.com" />
+          <button id="proxyGoBtn">Open</button>
+        </div>
       </div>
-      <div class="proxy-frame">
-        <iframe id="proxyFrame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src=""></iframe>
+    </section>
+
+    <section class="proxy-info">
+      <div class="info-card">
+        <h2>How it works</h2>
+        <p>
+          This is a simple proxy page. Paste a URL and click Open. The page will
+          open in a new tab.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h2>Why use a proxy</h2>
+        <p>
+          Use it to bypass restrictions, improve privacy, or test websites safely.
+        </p>
       </div>
     </section>
   </main>
+
   <script>
-    const form = document.getElementById("proxyForm");
-    const urlInput = document.getElementById("urlInput");
-    const proxyFrame = document.getElementById("proxyFrame");
-    const openBtn = document.getElementById("openBtn");
-    const copyBtn = document.getElementById("copyBtn");
+    const input = document.getElementById("proxyUrl");
+    const btn = document.getElementById("proxyGoBtn");
 
-    function makeProxyUrl(url) {
-      const encoded = encodeURIComponent(url);
-      return "https://cdn.proxyium.com/proxyrequest.php?url=" + encoded;
-    }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const url = urlInput.value.trim();
+    btn.addEventListener("click", () => {
+      const url = input.value.trim();
       if (!url) return;
-      const proxyUrl = makeProxyUrl(url);
-      proxyFrame.src = proxyUrl;
-    });
 
-    openBtn.addEventListener("click", () => {
-      const url = urlInput.value.trim();
-      if (!url) return;
-      const proxyUrl = makeProxyUrl(url);
-      window.open(proxyUrl, "_blank");
-    });
+      let finalUrl = url;
+      if (!finalUrl.startsWith("http://") && !finalUrl.startsWith("https://")) {
+        finalUrl = "https://" + finalUrl;
+      }
 
-    copyBtn.addEventListener("click", async () => {
-      const url = urlInput.value.trim();
-      if (!url) return;
-      const proxyUrl = makeProxyUrl(url);
-      await navigator.clipboard.writeText(proxyUrl);
+      window.open(finalUrl, "_blank");
     });
   </script>
+
   <script src="/frame.js"></script>
 </body>
 </html>
