@@ -4,8 +4,6 @@ const { StringStream } = require("scramjet");
 
 const app = express();
 
-app.use(express.static("public"));
-
 app.get("/api/proxy", async (req, res) => {
   const url = req.query.url;
 
@@ -23,6 +21,7 @@ app.get("/api/proxy", async (req, res) => {
   });
 
   const stream = new StringStream(response.body);
+
   stream.pipe(res);
 });
 
