@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blocksi - Proxy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="proxy-page">
+    <section class="proxy-box">
+      <h1>Proxy</h1>
+      <form id="proxyForm">
+        <input type="text" id="urlInput" placeholder="Enter URL" autocomplete="off" required>
+        <button type="submit" class="cta-btn">Go</button>
+      </form>
+      <div class="proxy-actions">
+        <button id="openBtn" class="cta-btn">Open in New Tab</button>
+        <button id="copyBtn" class="cta-btn">Copy Proxy Link</button>
+      </div>
+      <div class="proxy-frame">
+        <iframe id="proxyFrame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" src=""></iframe>
+      </div>
+    </section>
+  </main>
+  <script>
+    const form = document.getElementById("proxyForm");
+    const urlInput = document.getElementById("urlInput");
+    const proxyFrame = document.getElementById("proxyFrame");
+    const openBtn = document.getElementById("openBtn");
+    const copyBtn = document.getElementById("copyBtn");
+
+    function makeProxyUrl(url) {
+      const encoded = encodeURIComponent(url);
+      return "https://cdn.proxyium.com/proxyrequest.php?url=" + encoded;
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const url = urlInput.value.trim();
+      if (!url) return;
+      const proxyUrl = makeProxyUrl(url);
+      proxyFrame.src = proxyUrl;
+    });
+
+    openBtn.addEventListener("click", () => {
+      const url = urlInput.value.trim();
+      if (!url) return;
+      const proxyUrl = makeProxyUrl(url);
+      window.open(proxyUrl, "_blank");
+    });
+
+    copyBtn.addEventListener("click", async () => {
+      const url = urlInput.value.trim();
+      if (!url) return;
+      const proxyUrl = makeProxyUrl(url);
+      await navigator.clipboard.writeText(proxyUrl);
+    });
+  </script>
+  <script src="/frame.js"></script>
+</body>
+</html>
