@@ -91,7 +91,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 14px 22px;
-  background: #7c3aed;
+  background: #facc15;
   color: #000000;
   text-decoration: none;
   font-size: 16px;
@@ -101,21 +101,18 @@ body {
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
-.cta-btn:visited {
+.cta-btn:visited,
+.cta-btn:hover,
+.cta-btn:active,
+.cta-btn:focus {
   color: #000000;
+  text-decoration: none;
 }
 
 .cta-btn:hover {
-  background: #6d28d9;
-  color: #000000;
-  text-decoration: none;
+  background: #eab308;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-}
-
-.cta-btn:active {
-  color: #000000;
-  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 .cta-btn i {
