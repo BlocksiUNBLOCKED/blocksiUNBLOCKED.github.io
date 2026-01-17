@@ -308,3 +308,55 @@ body {
   text-decoration: none;
   font-weight: 600;
 }
+
+.games-page {
+  padding: 120px 24px 60px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.search-wrap {
+  margin-bottom: 36px;
+}
+
+.search-wrap input {
+  width: 100%;
+  padding: 22px;
+  font-size: 1.05rem;
+  border-radius: 18px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+.search-wrap input::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
+}
+
+.game-card {
+  display: block;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-4px);
+}
+
+.game-card img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+}
+
